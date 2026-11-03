@@ -25,6 +25,7 @@ jobs:
           flutter create --org com.alijedo --project-name piano_practice_with_ai .
           unzip -o piano_app_flutter_source.zip
           cp -r piano_app_flutter_source/* . 2>/dev/null || true
+          sed -i 's/\.delete(pitch)/\.remove(pitch)/g' lib/main.dart
           flutter pub get
 
       - name: Build Standalone Release APK
